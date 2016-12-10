@@ -1,0 +1,70 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body ng-app="app" ng-cloak>
+    <div ng-controller='MainCtrl' ng-cloak>
+        <script type="text/ng-template" id="partials/home.html">  
+          <md-content class="md-padding">
+              <h1 class="md-display-2">Home</h1>
+              <p></p>
+          </md-content>
+        </script>
+
+        <script type="text/ng-template" id="partials/about.html">  
+          <md-content class="md-padding">
+              <h1 class="md-display-2">About</h1>
+              <p></p>
+          </md-content>
+        </script>
+
+        <script type="text/ng-template" id="partials/contact.html">
+          <md-content class="md-padding">
+              <h1 class="md-display-2">Contact</h1>
+              <p></p>
+          </md-content>
+        </script>
+
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+          <md-tab label="home" href="#/home">
+            <div id="content" ng-view flex></div>
+          </md-tab>
+          <md-tab label="about" href="#/about">
+            <div id="content" ng-view flex></div>
+          </md-tab>
+          <md-tab label="contact" href="#/contact">
+            <div id="content" ng-view flex></div>
+          </md-tab>
+        </md-tabs>
+
+        
+        
+      </md-content>
+
+         
+    </div>
+      
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+<script src="./resources/js/angular-route.js"></script>
+  
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script src='app.js'></script>
+  
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->

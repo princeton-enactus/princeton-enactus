@@ -1,0 +1,289 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon"/>
+  <title>Princeton Enactus</title>
+  <!-- <base href="/"> -->
+  <!-- Angular Material style sheet -->
+  <!-- "https://gitcdn.link/repo/angular/bower-material/master/angular-material.css" -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Fauna+One|Open+Sans:300|Source+Sans+Pro|Libre+Baskerville" rel="stylesheet">
+  <link rel='stylesheet' href='./fullcalendar/fullcalendar.css' />
+
+<!-- jquery, moment, and angular have to get included before fullcalendar -->
+ <!--  <script src='./fullcalendar/lib/jquery.min.js'></script>
+  <script src='./fullcalendar/lib/moment.min.js'></script><script type="text/javascript" src="./angular-ui-calendar/src/calendar.js"></script>
+  
+  <script src='./fullcalendar/fullcalendar.js'></script> -->
+  </head>
+  <!-- ng-cloak -->
+<body ng-app="app">
+    <div ng-controller='MainCtrl' layout="column" layout-fill id="container">
+
+        <script type="text/ng-template" id="partials/home.html"> 
+        <!-- layout-fill etc --> 
+          <!-- no layout column -->
+          <!-- layout="column" and then layout rows on child elements -->
+          <md-content style="background-color:  #f7f7f7;" layout-fill  class="scrollable_content" ng-cloak>
+          <!-- layout column-->
+              <h1 class="title">Princeton Enactus</h1>
+              <img class="main_image" src='./assets/nassau.jpg'/>
+              
+              <!-- layout column-->
+              <p style="font-family: 'Fauna One', serif;" class="caption">Princeton Enactus is an organization dedicated to learning the process of social entrepreneurship from the ground up by immersing themselves in making an impact within the local community.  Members of Princeton Enactus work in project groups that advance small business ideas and work towards creating sustainable solutions that give back to the community.  Projects allow members to help others while also gaining entrepreneurial and business skills first hand.  From April to July, Enactus teams will compete across 35 countries and will be evaluated by business leaders serving as judges.  Connect with Princeton Enactus by emailing co-founders Charlene Liu'19 (ckyliu@princeton.edu) or Alison Shim'19 (ashim@princeton.edu).
+              <br> <br>
+              Applications are now live! More information under the About tab.
+              </p>
+              <!-- <div layout-fill layout="row" class="home_content"></div> -->
+          </md-content>
+          
+        </script>
+
+        <script type="text/ng-template" id="partials/calender.html">  
+          <md-content style="background-color:  #f7f7f7;" layout-fill layout="column" class="md-padding"> <!-- can comment out layout stuff? -->
+              <!-- <h1 class="md-display-2">Calender</h1> -->
+             <!--  <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=princeton.edu_h3e2kvcfplalrd7uf9q1v2htso%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=America%2FNew_York" style="border-width:0" width="100%" height="auto" frameborder="0" scrolling="no"></iframe> -->
+
+              <div style="background-color: white; padding: 10px; font-family: 'Fauna One', serif;" ui-calendar="uiConfig.calendar" class="span8 calendar" calendar="mainCalendar" id="calendar" ng-model="eventSources"></div>
+              <h2 style="text-align: center; font-family: 'Fauna One', serif;" class="md-display-1">Enactus Specific Events:</h2>
+              <md-list>
+                <md-divider></md-divider>
+                <md-list-item style="background-color: white;" class="md-3-line" ng-repeat="event in enactusEvents">
+                  <div style="text-align: center;" class="md-list-item-text">
+                    <h3 style="font-family: 'Fauna One', serif;">{{event.name}}</h3>
+                    <h4 style="font-family: 'Fauna One', serif;">{{event.location}}</h4>
+                    <p style="font-family: 'Fauna One', serif;">{{event.time}}</p>
+                  </div>
+                  <md-divider></md-divider> 
+                </md-list-item>
+              </md-list>
+          </md-content>
+        </script>
+
+        <script type="text/ng-template" id="partials/about.html">  
+          <md-content style="background-color:  #f7f7f7;" layout-fill>
+              <!-- <div layout="row" style="width: 100%;"> -->
+              <h1 style="font-family: 'Fauna One', serif; text-align: center;" layout-align="center center" class="md-display-2">
+                Launching in December 2016/January 2017
+              </h1>
+              
+              <iframe class="form_scroll" layout-fill src="https://docs.google.com/a/princeton.edu/forms/d/e/1FAIpQLSebo8L5LW7nacgnUVTFlxWK4kL-DQhd1ja4kXHdwQ4GMASJpw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+          </md-content>
+        </script>
+
+        <script type="text/ng-template" id="partials/contact.html">
+        <!-- ng-cloak to prevent loading of images slowly-->
+          <md-content style="background-color:  #f7f7f7;" layout="row" layout-fill class="md-padding" ng-cloak>
+              <!-- <h1 class="md-display-2">
+                Princeton Enactus Officers:
+              </h1>
+              <br>
+              <h2>
+                TBD
+              </h2>
+              <p></p> -->
+              <!-- <div layout-fill style="border: 1px solid black; width: 80%; height: 100%;"></div> -->
+              <div layout-fill layout="column">
+                <h1 style="text-align: center; font-family: 'Fauna One', serif;" layout-align="center center" class="md-display-2" layout="row">
+                  Princeton Enactus Officers
+                </h1>
+                <div layout="row">
+                  <div flex></div>
+                  <div flex-xs="" flex-gt-xs="50">
+                    <md-card style="background-color: white;" ng-repeat="officer in officersLeft" md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
+                      <md-card-title>
+                        <md-card-title-text>
+                          <span style="font-family: 'Fauna One', serif;" class="md-display-1">{{officer.name}}</span>
+                          <span style="padding: 5px; color: gray; font-family: 'Fauna One', serif;" class="md-headline">{{officer.role}}</span>
+                        </md-card-title-text>
+                      </md-card-title>
+                      <!-- <img class="md-card-image" style="width:50px; height: auto;" ng-src="{{officer.image}}"/> -->
+                      <md-card-content layout="row" layout-align="space-between">
+                        <!-- <div class="md-media-xl card-media" style="padding: 10px;"></div> -->
+                        <p class="bio_captions">{{officer.bio}}</p>
+                        <img class="card-media" height=250px ng-src="{{officer.image}}"/>
+                        <!-- <md-card-actions layout="column">
+                          <md-button class="md-icon-button" aria-label="Favorite">
+                            
+                          </md-button>
+                          <md-button class="md-icon-button" aria-label="Settings">
+              
+                          </md-button>
+                          <md-button class="md-icon-button" aria-label="Share">
+                            
+                          </md-button>
+                        </md-card-actions> -->
+                      </md-card-content>
+                    </md-card>
+                  </div> 
+                  <div flex-xs="" flex-gt-xs="50">
+                    <md-card style="background-color: white;" ng-repeat="officer in officersRight" md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
+                      <md-card-title>
+                        <md-card-title-text>
+                          <!-- md-headline-->
+                          <span style="font-family: 'Fauna One', serif;" class="md-display-1">{{officer.name}}</span>
+                          <!-- md-subhead-->
+                          <span style="padding: 5px; color: gray;font-family: 'Fauna One', serif;" class="md-headline">{{officer.role}}</span>
+                        </md-card-title-text>
+                      </md-card-title>
+                      <!-- <img class="md-card-image" style="width:50px; height: auto;" ng-src="{{officer.image}}"/> -->
+                      <md-card-content layout="row" layout-align="space-between">
+                        <!-- area on the left -->
+                        <!-- <div class="md-media-xl card-media" style="padding: 5px;"></div> -->
+                        <p class="bio_captions">{{officer.bio}}</p>
+                        <img class="card-media" height=250px ng-src="{{officer.image}}"/>
+                        <!-- <md-card-actions layout="column">
+                          <md-button class="md-icon-button" aria-label="Favorite">
+                            
+                          </md-button>
+                          <md-button class="md-icon-button" aria-label="Settings">
+              
+                          </md-button>
+                          <md-button class="md-icon-button" aria-label="Share">
+                            
+                          </md-button>
+                        </md-card-actions> -->
+                      </md-card-content>
+                    </md-card>
+                  </div>
+                  <!-- in case of wanting to center column, with flex
+                  block to left of column too -->
+                  <div flex></div>
+                </div>
+              </div>
+          </md-content>
+        </script>
+      <!-- main flex fixes sticky footer issue -->
+      <!-- need to fix this to transparent -->
+      <!-- added ngcloak -->
+      <img class="logo" src='./assets/Enactus Full Color.png' style='width: 90px; height: auto;' ng-cloak/>
+      <!-- layout-fill layout row -->
+        <md-content layout="row" flex>
+          <!-- layout fill --> <!-- class="md-primary"-->
+          <md-tabs flex  md-center-tabs md-stretch-tabs="always" md-border-bottom md-selected="selectedIndex">
+            <md-tab ng-disabled="true" layout-fill layout="row" md-on-select="selectedIndex = 1">
+              <md-tab-label>
+                <!-- <img layout-fill src='./assets/Enactus Princeton Logo.png' style='width: 30px; height: auto;'/> -->
+                <!-- <md-icon md-svg-icon="./assets/image2vector.svg"></md-icon> -->
+              </md-tab-label>
+              <md-tab-body layout-fill layout="row" >
+                <div id="content" flex ng-view></div>
+              </md-tab-body>
+            </md-tab>
+            <md-tab layout-fill layout="row" label="home" href="#/home">
+              <div id="content" layout-fill layout="row" ng-view></div>
+            </md-tab>
+            <!-- <md-menu> -->
+            <!-- ng-click="$mdOpenMenu($event)"  -->
+              <md-tab layout-fill layout="row" label="calender" href="#/calender" >
+                <md-tab-label>
+                  <div style=" width: 100%; height: 100%; display: block; overflow: hidden;" class="md-ink-ripple" ng-mouseenter="openDropdown($event)">
+                    <span>Calendar</span>
+                  </div>
+                </md-tab-label>
+                <md-tab-body layout-fill layout="row">
+                  <div id="content" layout-fill layout="row" ng-view></div>
+                </md-tab-body>
+                
+              </md-tab>
+              <!-- <md-menu-content>
+                <md-menu-item>
+                    <md-button>
+                      Events
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      More
+                    </md-button>
+                  </md-menu-item>
+              </md-menu-content>
+            </md-menu> -->
+            <md-tab label="about" layout-fill layout="row" href="#/about">
+              <div id="content" layout-fill layout="row" ng-view></div>
+            </md-tab>
+            <md-tab label="contact" layout-fill layout="row" href="#/contact">
+              <div id="content" layout-fill layout="row" ng-view></div>
+            </md-tab>
+          </md-tabs>
+
+        <!-- <div id="content" ui-view></div> -->
+        </md-content>
+      
+
+      <!-- <main flex></main> -->
+
+
+      <!-- sticky footer -->
+      
+      <md-content>
+        <footer layout="row" layout-align="center center">
+        <!-- md-toolbar-tools makes footer a toolbar -->
+        <!-- added ng-cloak -->
+          <md-toolbar class="md-toolbar-tools" id="footerBorder" ng-cloak>
+                <span class = "md-caption md-padding" id="footerText"> 
+                  Powered by Enactus &copy2016.
+                  <!-- <br>
+                  Author: Antony Toron -->
+                </span>
+                <md-button href="#/home" id="returnHome">
+                Princeton Enactus
+                </md-button>
+                <span flex></span>
+                <a href="https://www.facebook.com/Princeton-Enactus-225241894571679/s">
+                  <md-button id="facebookButton" aria-label="Facebook">
+                  <!-- should later be md-icon -->
+                    <img src="./assets/square-facebook-128.png" class="png-icon" style="width: 24px; height: 24px;"></img>
+                    <md-tooltip md-direction="right">Like Us!</md-tooltip>
+                  </md-button>
+                </a>
+                <span flex="5"></span>
+                <md-button id="emailButton" aria-label="Email" ng-click="showAlert($event)">
+              <!-- should later be md-icon -->
+                  <img src="./assets/email-4096-black.png" class="png-icon" style="width: 40px; height: 40px;"></img>
+                  <md-tooltip md-direction="right">Email Us!</md-tooltip>
+                </md-button>
+                <span flex="5"></span>
+
+            </md-toolbar>
+        </footer>
+      </md-content>
+         
+    </div>
+       <script src='./fullcalendar/lib/jquery.min.js'></script>
+
+      
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  <script src="./resources/js/angular-route.js"></script>
+
+<!-- <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script> -->
+  
+  <!-- Angular Material Library --> <!-- try as the bower version https://gitcdn.link/repo/angular/bower-material/master/angular-material.js -->
+ <!--  <script src="https://gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script> -->
+ <!-- adding specific version -->
+ <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!--    <script src='./fullcalendar/lib/jquery.min.js'></script>
+ -->  <script src='./fullcalendar/lib/moment.min.js'></script><script type="text/javascript" src="./angular-ui-calendar/src/calendar.js"></script>
+  
+  <script src='./fullcalendar/fullcalendar.js'></script>
+  <script src='./fullcalendar/gcal.js'></script>
+
+  <!-- Your application bootstrap  -->
+  <script src='app.js'></script>
+  
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
