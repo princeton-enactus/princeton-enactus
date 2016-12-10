@@ -1,0 +1,3 @@
+# princeton-enactus
+
+Princeton Enactus is an organization dedicated to learning the process of social entrepreneurship from the ground up by immersing themselves in making an impact within the local community. Members of Princeton Enactus work in project groups that advance small business ideas and work towards creating sustainable solutions that give back to the community. Projects allow members to help others while also gaining entrepreneurial and business skills first hand. From April to July, Enactus teams will compete across 35 countries and will be evaluated by business leaders serving as judges.
